@@ -10,9 +10,14 @@ consumer = KafkaConsumer(
 )
 
 print("Listening for messages...")
-received = []
+consumer_data = []
+
 for message in consumer:
-    received.append(message.value)
+    consumer_data.append(message.value)
     print("Received:", message.value)
 
-print(f"Total messages received: {len(received)}")
+with open("consumed_orders.json", "w") as f:
+    json.dump(consumer_data, f, indent=2)
+
+print(f"Total messages received: {len(consumer_data)}")
+print("Saved to consumed_orders.json")
