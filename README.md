@@ -87,4 +87,15 @@ Loaded the S3 data into Redshift Serverless using `COPY ... FORMAT AS JSON 'auto
 All checks agree across the three systems, confirming no data was lost, duplicated, or altered in transit, and that nulls were preserved correctly end to end.
 
 
+## Upgrade: JSON Lines → Parquet (Athena CTAS)
+Converted flights_source_raw to Parquet (Snappy), partitioned by airline, via Athena CTAS.
+Reconciled the copy: 285,368 rows, 217,877 weather_delay nulls, SUM(distance) 266,322,698 in both tables.
+
+| Query: DL flights + avg arrival delay | JSON Lines | Parquet (partitioned) |
+|---|---|---|
+| Result | 77,255 / 4.42 min | 77,255 / 4.42 min |
+| Data scanned | 166.30 MB | 97.17 KB |
+
+Partition pruning skips the other four airline folders, and columnar storage reads only the columns the query uses.
+
 
