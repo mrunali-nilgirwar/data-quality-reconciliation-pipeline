@@ -1,0 +1,37 @@
+CREATE TABLE flights_source_raw (
+  YEAR int,
+  MONTH int,
+  DAY int,
+  DAY_OF_WEEK int,
+  AIRLINE string,
+  FLIGHT_NUMBER int,
+  TAIL_NUMBER string,
+  ORIGIN_AIRPORT string,
+  DESTINATION_AIRPORT string,
+  SCHEDULED_DEPARTURE int,
+  DEPARTURE_TIME double,
+  DEPARTURE_DELAY double,
+  TAXI_OUT double,
+  WHEELS_OFF double,
+  SCHEDULED_TIME double,
+  ELAPSED_TIME double,
+  AIR_TIME double,
+  DISTANCE int,
+  WHEELS_ON double,
+  TAXI_IN double,
+  SCHEDULED_ARRIVAL int,
+  ARRIVAL_TIME double,
+  ARRIVAL_DELAY double,
+  DIVERTED int,
+  CANCELLED int,
+  CANCELLATION_REASON string,
+  AIR_SYSTEM_DELAY double,
+  SECURITY_DELAY double,
+  AIRLINE_DELAY double,
+  LATE_AIRCRAFT_DELAY double,
+  WEATHER_DELAY double
+)
+WITH (
+  format = 'JSON',
+  external_location = 's3://mrunali-dqe-project-20260913/flights_raw/'
+)

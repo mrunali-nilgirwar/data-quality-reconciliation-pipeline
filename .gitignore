@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+source_flights.csv
+source_flights_lines.json
+flights.csv
+*.parquet
