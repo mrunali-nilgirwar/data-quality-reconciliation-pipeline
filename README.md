@@ -44,8 +44,6 @@ The missing and duplicate counts happened to roughly cancel out in the total row
 - PySpark reconciliation logic (Databricks), run against real project data with findings documented above
 
 
-## Part 2: Real-World Data Validation
-
 ## Part 2: Real-World Data Validation — Airline On-Time Performance
 
 Extended this project with real government data to practice validation on messier, real-world data rather than only synthetic examples.
